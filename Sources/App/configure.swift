@@ -18,6 +18,7 @@ public func configure(_ app: Application) throws {
 
     app.migrations.add(CreateTodo())
     app.migrations.add(CreateGalaxy())
+    app.migrations.add(CreateUser())
     app.databases.use(.postgres(hostname: "localhost", username: "admin", password: "1234", database: "swift"), as: .psql)
     // register routes
     try routes(app)
