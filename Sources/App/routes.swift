@@ -11,6 +11,7 @@ func routes(_ app: Application) throws {
     }
 
     
+    
     app.get("galaxies") { req in
         Galaxy.query(on: req.db).all()
     }

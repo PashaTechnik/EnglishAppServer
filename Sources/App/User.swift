@@ -19,17 +19,25 @@ final class User: Model, Content {
     @Field(key: "email")
     var email: String
     
+    @Field(key: "name")
+    var name: String
+    
     @Field(key: "password")
     var password: String
+    
+    @Field(key: "points")
+    var points: Int
 
     // Creates a new, empty Galaxy.
     init() { }
 
     // Creates a new Galaxy with all properties set.
-    init(id: UUID? = nil, email: String, password: String) {
+    init(id: UUID? = nil, email: String, password: String, name : String, points: Int) {
         self.id = id
         self.email = email
         self.password = password
+        self.name = name
+        self.points = points
         
     }
 }
@@ -41,6 +49,8 @@ struct CreateUser: Migration {
             .id()
             .field("email", .string)
             .field("password", .string)
+            .field("name", .string)
+            .field("points", .int)
             .create()
     }
 
